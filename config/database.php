@@ -7,6 +7,7 @@ return [
     'database' => env('DB_NAME', 'ferramentasfacil'),
     'username' => env('DB_USER', 'postgres'),
     'password' => env('DB_PASSWORD', ''),
+    'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

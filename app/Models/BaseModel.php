@@ -17,7 +17,7 @@ class BaseModel
         if (self::$pdo === null) {
             $config = require basePath('config/database.php');
 
-            $dsn = "pgsql:host={$config['host']};port={$config['port']};dbname={$config['database']}";
+            $dsn = "pgsql:host={$config['host']};port={$config['port']};dbname={$config['database']};sslmode={$config['sslmode']}";
             self::$pdo = new PDO($dsn, $config['username'], $config['password'], $config['options']);
             self::$pdo->exec("SET NAMES 'UTF8'");
         }
