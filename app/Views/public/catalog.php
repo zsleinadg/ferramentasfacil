@@ -59,6 +59,9 @@
                                 <div class="card-body d-flex flex-column">
                                     <small class="text-muted"><?= $tool['categoryname'] ?></small>
                                     <h6 class="card-title mt-1"><?= $tool['toolname'] ?></h6>
+                                    <?php if ($tool['brand']): ?>
+                                        <small class="text-muted"><?= $tool['brand'] ?><?= $tool['model'] ? ' - ' . $tool['model'] : '' ?></small>
+                                    <?php endif; ?>
                                     <div class="d-flex justify-content-between align-items-center mt-auto">
                                         <div>
                                             <strong class="text-primary fs-5">R$ <?= number_format((float) $tool['dailyprice'], 2, ',', '.') ?></strong>

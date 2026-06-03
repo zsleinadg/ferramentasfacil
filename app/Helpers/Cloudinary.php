@@ -7,7 +7,7 @@ class Cloudinary
         return require basePath('config/cloudinary.php');
     }
 
-    public static function upload(string $filePath, ?string $publicId = null): ?array
+    public static function upload(string $filePath, ?string $publicId = null, ?string $folder = null): ?array
     {
         $config = self::config();
         $endpoint = "https://api.cloudinary.com/v1_1/{$config['cloud_name']}/image/upload";
@@ -15,6 +15,9 @@ class Cloudinary
         $signParams = ['timestamp' => time()];
         if ($publicId) {
             $signParams['public_id'] = $publicId;
+        }
+        if ($folder) {
+            $signParams['folder'] = $folder;
         }
 
         $params = $signParams;
@@ -85,7 +88,7 @@ class Cloudinary
 
     public static function extractPublicId(string $url): ?string
     {
-        if (preg_match('#/v\d+/(?:upload/)?([^/]+?)(?:\.\w+)?$#', $url, $m)) {
+        if (preg_match('#/v\d+/(?:upload/)?(.+?)(?:\.\w+)?$#', $url, $m)) {
             $id = $m[1];
             $id = preg_replace('/\.[^.]+$/', '', $id);
             return $id;

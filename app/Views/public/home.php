@@ -1,8 +1,9 @@
 <?php $title = $title ?? 'FerramentasFácil - Locação de Ferramentas'; ?>
 <?php ob_start(); ?>
 
-<section class="hero text-light text-center d-flex align-items-center" style="min-height: 85vh;">
-    <div class="container">
+<section class="hero text-light d-flex align-items-center position-relative overflow-hidden" style="min-height: 85vh;">
+    <div class="position-absolute w-100 h-100" style="top:0;left:0;background:url('https://multiteiner.com.br/content/uploads/2020/07/Capa-do-artigo-1024x467.jpg') center center / cover no-repeat; opacity:0.12;"></div>
+    <div class="container position-relative text-center">
         <h1 class="display-3 fw-bold mb-3">Alugue Ferramentas para Sua Obra</h1>
         <p class="lead text-white-50 mb-4 mx-auto" style="max-width: 600px;">
             Equipamentos de qualidade para construção civil. Aluguel fácil, rápido e sem burocracia.

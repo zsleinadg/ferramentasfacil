@@ -81,7 +81,7 @@ class ToolController extends BaseController
         $coverImage = null;
         if (isset($_FILES['cover_image']) && $_FILES['cover_image']['error'] === UPLOAD_ERR_OK) {
             try {
-                $coverImage = Upload::image($_FILES['cover_image'], 'tools');
+                $coverImage = Upload::image($_FILES['cover_image'], 'tools/cover');
             } catch (RuntimeException $e) {
                 $_SESSION['_flash']['error'] = $e->getMessage();
                 $_SESSION['_old_input'] = $data;
@@ -154,7 +154,7 @@ class ToolController extends BaseController
                 if ($coverImage) {
                     Upload::deleteImage($coverImage);
                 }
-                $coverImage = Upload::image($_FILES['cover_image'], 'tools');
+                $coverImage = Upload::image($_FILES['cover_image'], 'tools/cover');
             } catch (RuntimeException $e) {
                 $_SESSION['_flash']['error'] = $e->getMessage();
                 $this->redirect('/admin/ferramentas/' . $id . '/editar');
@@ -217,7 +217,7 @@ class ToolController extends BaseController
             ];
 
             try {
-                $path = Upload::image($fileChunk, 'tools');
+                $path = Upload::image($fileChunk, 'tools/gallery');
                 if ($path) {
                     $this->toolImageModel->addImage($toolId, $path, null, $nextOrder++);
                 }

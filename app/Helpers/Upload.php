@@ -27,7 +27,10 @@ class Upload
             throw new RuntimeException('Arquivo muito grande. Máximo de 5MB.');
         }
 
-        $result = Cloudinary::upload($tmpName, null);
+        $publicId = uniqid() . '_' . time();
+        $folder = 'ferramentasfacil/' . trim($subdir, '/');
+
+        $result = Cloudinary::upload($tmpName, $publicId, $folder);
 
         return $result['secure_url'] ?? $result['url'] ?? null;
     }
