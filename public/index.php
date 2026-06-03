@@ -6,6 +6,10 @@ if ($uri !== '/' && file_exists($publicPath) && !is_dir($publicPath)) {
     return false;
 }
 
+require_once dirname(__DIR__) . '/app/Helpers.php';
+
+require_once dirname(__DIR__) . '/app/Router.php';
+
 $app = require dirname(__DIR__) . '/config/app.php';
 
 $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
@@ -21,10 +25,6 @@ session_set_cookie_params([
 ]);
 
 session_start();
-
-require_once dirname(__DIR__) . '/app/Helpers.php';
-
-require_once dirname(__DIR__) . '/app/Router.php';
 
 spl_autoload_register(function (string $class) {
     $paths = [
