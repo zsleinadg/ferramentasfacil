@@ -1,0 +1,10 @@
+.git
+.gitignore
+.env
+.env.local
+.dockerignore
+nul
+admin_cookies.txt
+test_db.cmd
+start.cmd
+seed_data.ps1
