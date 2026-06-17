@@ -48,6 +48,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-white" href="/admin/mensagens">
+                        <i class="bi bi-envelope"></i> Mensagens
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-white" href="/admin/relatorios">
                         <i class="bi bi-graph-up"></i> Relatórios
                     </a>

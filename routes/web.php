@@ -11,7 +11,7 @@ Router::get('/ferramenta/{slug}', 'CatalogController@show');
 
 Router::get('/sobre', 'PageController@about');
 Router::get('/contato', 'PageController@contact');
-Router::post('/contato', 'HomeController@contactSubmit');
+Router::post('/contato', 'PageController@contactSubmit');
 
 Router::get('/login', 'AuthController@loginForm', ['GuestMiddleware']);
 Router::post('/login', 'AuthController@login', ['GuestMiddleware']);
@@ -64,6 +64,9 @@ Router::post('/admin/usuarios/{id}/role', 'UserController@updateRole', ['AuthMid
 Router::post('/admin/usuarios/{id}/toggle', 'UserController@toggleActive', ['AuthMiddleware', ['RoleMiddleware', [['admin']]]]);
 
 Router::get('/admin/relatorios', 'ReportController@index', ['AuthMiddleware', ['RoleMiddleware', [['admin']]]]);
+Router::get('/admin/mensagens', 'PageController@adminMessages', ['AuthMiddleware', ['RoleMiddleware', [['admin', 'staff']]]]);
+Router::post('/admin/mensagens/{id}/read', 'PageController@markAsRead', ['AuthMiddleware', ['RoleMiddleware', [['admin', 'staff']]]]);
+
 Router::get('/admin/configuracoes', 'SettingsController@index', ['AuthMiddleware', ['RoleMiddleware', [['admin']]]]);
 Router::post('/admin/configuracoes', 'SettingsController@update', ['AuthMiddleware', ['RoleMiddleware', [['admin']]]]);
 

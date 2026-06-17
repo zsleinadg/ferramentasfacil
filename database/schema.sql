@@ -137,6 +137,17 @@ CREATE TABLE systemSettings (
     updatedAt TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
+-- 4.10 Tabela: contactMessages
+CREATE TABLE contactMessages (
+    messageId SERIAL PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    subject VARCHAR(200) DEFAULT '',
+    message TEXT NOT NULL,
+    isRead BOOLEAN DEFAULT FALSE,
+    createdAt TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
 -- Indexes
 CREATE INDEX idx_users_email ON users(email);
 CREATE INDEX idx_users_googleId ON users(googleId);

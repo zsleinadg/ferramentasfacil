@@ -13,7 +13,7 @@
         <div class="col-md-6">
             <div class="ratio ratio-4x3 bg-light rounded overflow-hidden">
                 <?php if ($tool['coverimageurl']): ?>
-                    <img src="<?= imageUrl($tool['coverimageurl']) ?>" alt="<?= $tool['toolname'] ?>" class="object-fit-cover">
+                    <img src="<?= imageUrl($tool['coverimageurl']) ?>" alt="<?= $tool['toolname'] ?>" class="object-fit-cover" loading="lazy">
                 <?php else: ?>
                     <div class="d-flex align-items-center justify-content-center bg-light">
                         <i class="bi bi-image text-muted" style="font-size: 4rem;"></i>
@@ -26,7 +26,7 @@
                     <?php foreach ($gallery as $img): ?>
                         <img src="<?= imageUrl($img['imageurl']) ?>" alt="<?= $img['alttext'] ?? '' ?>"
                              style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
-                             class="rounded border" onclick="document.querySelector('.ratio img')?.src=this.src">
+                             class="rounded border" loading="lazy" onclick="document.querySelector('.ratio img')?.src=this.src">
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>

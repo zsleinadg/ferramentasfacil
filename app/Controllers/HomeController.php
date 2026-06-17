@@ -24,9 +24,4 @@ class HomeController extends BaseController
         ]);
     }
 
-    public function contactSubmit(): void
-    {
-        $_SESSION['_flash']['success'] = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
-        $this->redirect('/contato');
-    }
 }

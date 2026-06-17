@@ -49,7 +49,7 @@
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="ratio ratio-4x3 bg-light">
                                     <?php if ($tool['coverimageurl']): ?>
-                                        <img src="<?= imageUrl($tool['coverimageurl']) ?>" alt="<?= $tool['toolname'] ?>" class="card-img-top object-fit-cover">
+                                        <img src="<?= imageUrl($tool['coverimageurl']) ?>" alt="<?= $tool['toolname'] ?>" class="card-img-top object-fit-cover" loading="lazy">
                                     <?php else: ?>
                                         <div class="d-flex align-items-center justify-content-center bg-light">
                                             <i class="bi bi-image text-muted fs-1"></i>
